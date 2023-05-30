@@ -1,0 +1,3461 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "description": "Completed by Shenxiang, Qingkong and Ruixi",
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "gnetId": 11190,
+    "graphTooltip": 0,
+    "id": 35,
+    "links": [
+      {
+        "icon": "external link",
+        "tags": [],
+        "title": "template update",
+        "type": "link",
+        "url": "https://grafana.com/grafana/dashboards/11190"
+      },
+      {
+        "icon": "external link",
+        "tags": [],
+        "title": "Akiraka",
+        "type": "link",
+        "url": "https://www.akiraka.net"
+      }
+    ],
+    "liveNow": false,
+    "panels": [
+      {
+        "collapsed": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 0
+        },
+        "id": 36,
+        "panels": [],
+        "targets": [
+          {
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "summary",
+        "type": "row"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "max": 10000,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "rgba(50, 172, 45, 0.97)",
+                  "value": null
+                },
+                {
+                  "color": "rgba(237, 129, 40, 0.89)",
+                  "value": 1000
+                },
+                {
+                  "color": "rgba(245, 54, 54, 0.9)",
+                  "value": 5000
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 4,
+          "x": 0,
+          "y": 1
+        },
+        "id": 17,
+        "links": [],
+        "maxDataPoints": 100,
+        "options": {
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "sum"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.4.7",
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "$inter",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "ip.keyword",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "Access PV (relative)",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "max": 1000,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "rgba(245, 54, 54, 0.9)",
+                  "value": null
+                },
+                {
+                  "color": "rgba(237, 129, 40, 0.89)",
+                  "value": 100
+                },
+                {
+                  "color": "rgba(50, 172, 45, 0.97)",
+                  "value": 500
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 4,
+          "x": 4,
+          "y": 1
+        },
+        "id": 1,
+        "links": [],
+        "maxDataPoints": 100,
+        "options": {
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "sum"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.4.7",
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "$inter",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "client_ip.keyword",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "cardinality"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "Access UVs (Relative)",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [
+              {
+                "options": {
+                  "match": "null",
+                  "result": {
+                    "text": "N/A"
+                  }
+                },
+                "type": "special"
+              }
+            ],
+            "max": 1,
+            "min": 0,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "rgba(50, 172, 45, 0.97)",
+                  "value": null
+                },
+                {
+                  "color": "rgba(237, 129, 40, 0.89)",
+                  "value": 0.5
+                },
+                {
+                  "color": "rgba(245, 54, 54, 0.9)",
+                  "value": 0.8
+                }
+              ]
+            },
+            "unit": "none"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 4,
+          "x": 8,
+          "y": 1
+        },
+        "id": 24,
+        "links": [],
+        "maxDataPoints": 100,
+        "options": {
+          "orientation": "horizontal",
+          "reduceOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.4.7",
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "metrics": [
+              {
+                "field": "responsetime",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "avg"
+              }
+            ],
+            "orderByTime": "ASC",
+            "policy": "default",
+            "query": "domain:$domain",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain Average Response Time (relative)",
+        "type": "gauge"
+      },
+      {
+        "columns": [],
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 1
+        },
+        "id": 64,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "desc": false
+        },
+        "styles": [
+          {
+            "$$hashKey": "object:121",
+            "alias": "domain name",
+            "align": "auto",
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "domain.keyword",
+            "type": "number"
+          },
+          {
+            "$$hashKey": "object:122",
+            "alias": "pv",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 3,
+            "link": false,
+            "pattern": "Count",
+            "thresholds": [],
+            "type": "number",
+            "unit": "locale"
+          },
+          {
+            "$$hashKey": "object:123",
+            "alias": "uv",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 3,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Unique Count",
+            "thresholds": [],
+            "type": "number",
+            "unit": "locale"
+          },
+          {
+            "$$hashKey": "object:124",
+            "alias": "processing time",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Average responsetime",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:125",
+            "alias": "Response time",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Average upstreamtime",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "domain.keyword",
+                "id": "2",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "0"
+                },
+                "type": "terms"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              },
+              {
+                "field": "client_ip.keyword",
+                "id": "3",
+                "meta": {},
+                "settings": {},
+                "type": "cardinality"
+              },
+              {
+                "field": "responsetime",
+                "id": "4",
+                "meta": {},
+                "settings": {},
+                "type": "avg"
+              },
+              {
+                "field": "upstreamtime",
+                "id": "5",
+                "meta": {},
+                "settings": {},
+                "type": "avg"
+              }
+            ],
+            "query": "domain:$domain AND status:$status",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "Basic profile (relative)",
+        "transform": "table",
+        "type": "table-old"
+      },
+      {
+        "collapsed": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 9
+        },
+        "id": 47,
+        "panels": [],
+        "targets": [
+          {
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "TOP 10",
+        "type": "row"
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "short",
+        "gridPos": {
+          "h": 8,
+          "w": 7,
+          "x": 0,
+          "y": 10
+        },
+        "id": 60,
+        "legend": {
+          "percentage": true,
+          "show": true,
+          "values": false
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "ua.device.keyword",
+                "id": "4",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain mobile terminal TOP 10",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "short",
+        "gridPos": {
+          "h": 8,
+          "w": 10,
+          "x": 7,
+          "y": 10
+        },
+        "id": 39,
+        "legend": {
+          "percentage": true,
+          "show": true,
+          "values": false
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "ua.name.keyword",
+                "id": "3",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain browser TOP 10",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "short",
+        "gridPos": {
+          "h": 8,
+          "w": 7,
+          "x": 17,
+          "y": 10
+        },
+        "id": 16,
+        "legend": {
+          "percentage": true,
+          "show": true,
+          "values": false
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "ua.os_name.keyword",
+                "id": "4",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain system TOP 10",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "locale",
+        "gridPos": {
+          "h": 10,
+          "w": 14,
+          "x": 0,
+          "y": 18
+        },
+        "height": "300px",
+        "id": 57,
+        "legend": {
+          "percentage": true,
+          "percentageDecimals": 3,
+          "show": true,
+          "values": true
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "url.keyword",
+                "id": "3",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "20"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain => referer top 10",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "locale",
+        "gridPos": {
+          "h": 10,
+          "w": 10,
+          "x": 14,
+          "y": 18
+        },
+        "id": 59,
+        "legend": {
+          "percentage": true,
+          "percentageDecimals": 3,
+          "show": true,
+          "values": true
+        },
+        "legendType": "Under graph",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "upstreamhost.keyword",
+                "id": "4",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "20"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "Upstream",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {
+          "404": "#3F2B5B",
+          "499": "#890F02",
+          "500": "#BF1B00"
+        },
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "decimals": 0,
+        "editable": true,
+        "error": false,
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "grid": {},
+        "gridPos": {
+          "h": 9,
+          "w": 16,
+          "x": 0,
+          "y": 28
+        },
+        "hiddenSeries": false,
+        "id": 7,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": true,
+          "max": true,
+          "min": true,
+          "rightSide": true,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 2,
+        "links": [],
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "9.4.7",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "status",
+                "id": "3",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "$inter",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "$domain HTTP status code",
+        "tooltip": {
+          "msResolution": true,
+          "shared": true,
+          "sort": 0,
+          "value_type": "cumulative"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:128",
+            "format": "none",
+            "label": "number of status codes",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:129",
+            "format": "none",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fontSize": "60%",
+        "format": "short",
+        "gridPos": {
+          "h": 9,
+          "w": 8,
+          "x": 16,
+          "y": 28
+        },
+        "id": 41,
+        "legend": {
+          "header": "quantity",
+          "percentage": true,
+          "show": true,
+          "values": false
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": "1",
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "status",
+                "id": "3",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "1",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "Status Code Pie Chart",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 1,
+        "gridPos": {
+          "h": 9,
+          "w": 15,
+          "x": 0,
+          "y": 37
+        },
+        "hiddenSeries": false,
+        "id": 80,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "9.4.7",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "status",
+                "id": "3",
+                "settings": {
+                  "min_doc_count": "1",
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "10m",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain AND status:200 AND /ucrmapi/",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "API: /ucrmapi/ With Request 200 ",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:303",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:304",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "locale",
+        "gridPos": {
+          "h": 9,
+          "w": 9,
+          "x": 15,
+          "y": 37
+        },
+        "height": "300px",
+        "id": 81,
+        "legend": {
+          "percentage": true,
+          "percentageDecimals": 3,
+          "show": true,
+          "values": true
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "url.keyword",
+                "id": "2",
+                "settings": {
+                  "min_doc_count": "1",
+                  "order": "desc",
+                  "orderBy": "1",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "3",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": "0",
+                  "timeZone": "utc",
+                  "trimEdges": "0"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain AND 200 AND /ucrmapi/ ",
+            "refId": "B",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "API: /ucrmapi/ With Request 200 ",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {
+          "500": "dark-red"
+        },
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 1,
+        "gridPos": {
+          "h": 9,
+          "w": 15,
+          "x": 0,
+          "y": 46
+        },
+        "hiddenSeries": false,
+        "id": 68,
+        "legend": {
+          "alignAsTable": false,
+          "avg": false,
+          "current": false,
+          "hideEmpty": false,
+          "hideZero": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "9.4.7",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "status",
+                "id": "3",
+                "settings": {
+                  "min_doc_count": "1",
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "10m",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain AND status:500",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Request 500",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:303",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:304",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "locale",
+        "gridPos": {
+          "h": 9,
+          "w": 9,
+          "x": 15,
+          "y": 46
+        },
+        "height": "300px",
+        "id": 75,
+        "legend": {
+          "percentage": true,
+          "percentageDecimals": 3,
+          "show": true,
+          "values": true
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "url.keyword",
+                "id": "2",
+                "settings": {
+                  "min_doc_count": "1",
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "3",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": "0",
+                  "timeZone": "utc",
+                  "trimEdges": "0"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain AND 500 AND /ucrmapi/ ",
+            "refId": "B",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "API With Request 500",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
+        "fill": 0,
+        "fillGradient": 2,
+        "gridPos": {
+          "h": 7,
+          "w": 13,
+          "x": 0,
+          "y": 55
+        },
+        "hiddenSeries": false,
+        "id": 70,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "connected",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "9.4.7",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "@timestamp",
+                "id": "3",
+                "settings": {
+                  "interval": "10m",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "metrics": [
+              {
+                "field": "client_ip.keyword",
+                "id": "1",
+                "meta": {},
+                "settings": {},
+                "type": "cardinality"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Total Client Access",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:712",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:713",
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 1,
+        "gridPos": {
+          "h": 7,
+          "w": 11,
+          "x": 13,
+          "y": 55
+        },
+        "hiddenSeries": false,
+        "id": 79,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "9.4.7",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "10m",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "$domain Visit PV today (every 10 minutes)",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "collapsed": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 62
+        },
+        "id": 72,
+        "panels": [],
+        "targets": [
+          {
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "PV and UV",
+        "type": "row"
+      },
+      {
+        "aliasColors": {},
+        "bars": true,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 1,
+        "gridPos": {
+          "h": 7,
+          "w": 24,
+          "x": 0,
+          "y": 63
+        },
+        "hiddenSeries": false,
+        "id": 74,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "9.4.7",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "10m",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "7d",
+        "timeRegions": [],
+        "title": "$domain Access PV for 7 days (every 10 minutes)",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "collapsed": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 70
+        },
+        "id": 37,
+        "panels": [],
+        "targets": [
+          {
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": " Historical trend",
+        "type": "row"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "decimals": 0,
+        "editable": true,
+        "error": false,
+        "fieldConfig": {
+          "defaults": {
+            "links": []
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "grid": {},
+        "gridPos": {
+          "h": 8,
+          "w": 16,
+          "x": 0,
+          "y": 71
+        },
+        "hiddenSeries": false,
+        "id": 2,
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": true,
+          "max": true,
+          "min": true,
+          "rightSide": false,
+          "show": false,
+          "total": true,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "connected",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "9.4.7",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "hide": true,
+                "id": "1",
+                "type": "count"
+              },
+              {
+                "field": "select field",
+                "id": "3",
+                "meta": {},
+                "pipelineVariables": [
+                  {
+                    "name": "qps",
+                    "pipelineAgg": "1"
+                  }
+                ],
+                "settings": {
+                  "script": "params.qps*1000/$__interval_ms"
+                },
+                "type": "bucket_script"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "$domain number of requests",
+        "tooltip": {
+          "msResolution": true,
+          "shared": true,
+          "sort": 0,
+          "value_type": "cumulative"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "reqps",
+            "label": "frequency",
+            "logBase": 1,
+            "show": true
+          },
+          {
+            "format": "none",
+            "logBase": 1,
+            "show": false
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "short",
+        "gridPos": {
+          "h": 8,
+          "w": 8,
+          "x": 16,
+          "y": 71
+        },
+        "id": 14,
+        "legend": {
+          "percentage": true,
+          "show": true,
+          "values": false
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 4,
+        "nullPointMode": "connected",
+        "pieType": "donut",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "request_method.keyword",
+                "id": "3",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain Proportion of request methods",
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "aliasColors": {
+          "500": "#BF1B00"
+        },
+        "breakPoint": "50%",
+        "combine": {
+          "label": "Others",
+          "threshold": 0
+        },
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "editable": true,
+        "error": false,
+        "fontSize": "80%",
+        "format": "short",
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 79
+        },
+        "height": "300px",
+        "id": 13,
+        "legend": {
+          "percentage": true,
+          "show": true,
+          "values": true
+        },
+        "legendType": "Right side",
+        "links": [],
+        "maxDataPoints": 3,
+        "maxPerRow": 1,
+        "nullPointMode": "connected",
+        "pieType": "pie",
+        "strokeWidth": 1,
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "referer.keyword",
+                "id": "3",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "field": "@timestamp",
+                "id": "2",
+                "settings": {
+                  "interval": "auto",
+                  "min_doc_count": 0,
+                  "trimEdges": 0
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "dsType": "elasticsearch",
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain referer top 10",
+        "transparent": true,
+        "type": "grafana-piechart-panel",
+        "valueName": "total"
+      },
+      {
+        "collapsed": false,
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "gridPos": {
+          "h": 1,
+          "w": 24,
+          "x": 0,
+          "y": 87
+        },
+        "id": 38,
+        "panels": [],
+        "targets": [
+          {
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "refId": "A"
+          }
+        ],
+        "title": "Data report analysis",
+        "type": "row"
+      },
+      {
+        "columns": [],
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 11,
+          "w": 17,
+          "x": 0,
+          "y": 88
+        },
+        "id": 43,
+        "pageSize": 10,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "desc": false
+        },
+        "styles": [
+          {
+            "$$hashKey": "object:136",
+            "alias": "Number of requests",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 0,
+            "pattern": "Count",
+            "thresholds": [],
+            "type": "number",
+            "unit": "locale"
+          },
+          {
+            "$$hashKey": "object:137",
+            "alias": "\total number of burls(count)",
+            "align": "auto",
+            "colorMode": "value",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "mappingType": 1,
+            "pattern": "Unique Count",
+            "thresholds": [
+              "30",
+              "60"
+            ],
+            "type": "number",
+            "unit": "none"
+          },
+          {
+            "$$hashKey": "object:138",
+            "alias": "Client IP",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "client_ip.keyword",
+            "thresholds": [],
+            "type": "string",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:139",
+            "alias": "Return the total client traffic",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Sum",
+            "thresholds": [],
+            "type": "number",
+            "unit": "decbytes"
+          }
+        ],
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "client_ip.keyword",
+                "id": "2",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "0"
+                },
+                "type": "terms"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              },
+              {
+                "field": "url.keyword",
+                "id": "3",
+                "meta": {},
+                "settings": {},
+                "type": "cardinality"
+              },
+              {
+                "field": "size",
+                "id": "6",
+                "meta": {},
+                "settings": {},
+                "type": "sum"
+              }
+            ],
+            "query": "domain:$domain AND status:$status",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain => Client data details please",
+        "transform": "table",
+        "type": "table-old"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green"
+                },
+                {
+                  "color": "green",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 11,
+          "w": 7,
+          "x": 17,
+          "y": 88
+        },
+        "id": 82,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "9.4.7",
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "client_ip.keyword",
+                "id": "2",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_count",
+                  "size": "0"
+                },
+                "type": "terms"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              },
+              {
+                "field": "url.keyword",
+                "id": "3",
+                "meta": {},
+                "settings": {},
+                "type": "cardinality"
+              },
+              {
+                "field": "size",
+                "id": "6",
+                "meta": {},
+                "settings": {},
+                "type": "sum"
+              }
+            ],
+            "query": "domain:$domain AND status:$status",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain => Client data details please",
+        "type": "gauge"
+      },
+      {
+        "columns": [],
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 11,
+          "w": 24,
+          "x": 0,
+          "y": 99
+        },
+        "id": 45,
+        "pageSize": 10,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "col": 1,
+          "desc": true
+        },
+        "styles": [
+          {
+            "$$hashKey": "object:378",
+            "alias": "request URL name",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "url.keyword",
+            "thresholds": [],
+            "type": "string",
+            "unit": "none"
+          },
+          {
+            "$$hashKey": "object:379",
+            "alias": "total number of requests(pv)",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "mappingType": 1,
+            "pattern": "Count",
+            "thresholds": [],
+            "type": "number",
+            "unit": "locale"
+          },
+          {
+            "$$hashKey": "object:380",
+            "alias": "average response time(s)",
+            "align": "auto",
+            "colorMode": "value",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 3,
+            "mappingType": 1,
+            "pattern": "Average responsetime",
+            "thresholds": [
+              "1",
+              "10"
+            ],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:381",
+            "alias": "Average backend response time(s)",
+            "align": "auto",
+            "colorMode": "value",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 3,
+            "mappingType": 1,
+            "pattern": "Average upstreamtime",
+            "thresholds": [
+              "1",
+              "10"
+            ],
+            "type": "number",
+            "unit": "none"
+          },
+          {
+            "$$hashKey": "object:382",
+            "alias": "total number of ip(uv)",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "mappingType": 1,
+            "pattern": "Unique Count",
+            "thresholds": [],
+            "type": "number",
+            "unit": "locale"
+          },
+          {
+            "$$hashKey": "object:383",
+            "alias": "return client traffic",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Sum",
+            "thresholds": [],
+            "type": "number",
+            "unit": "decbytes"
+          }
+        ],
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "field": "url.keyword",
+                "id": "2",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "0"
+                },
+                "type": "terms"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              },
+              {
+                "field": "clientip.keyword",
+                "id": "3",
+                "meta": {},
+                "settings": {},
+                "type": "cardinality"
+              },
+              {
+                "field": "responsetime",
+                "id": "4",
+                "meta": {},
+                "settings": {},
+                "type": "avg"
+              },
+              {
+                "field": "upstreamtime",
+                "id": "5",
+                "meta": {},
+                "settings": {},
+                "type": "avg"
+              },
+              {
+                "field": "size",
+                "id": "6",
+                "meta": {},
+                "settings": {},
+                "type": "sum"
+              }
+            ],
+            "query": "domain:$domain AND status:$status",
+            "refId": "A",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain => Request Url Data details please",
+        "transform": "table",
+        "type": "table-old"
+      },
+      {
+        "columns": [],
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "U3Qw7sL4k"
+        },
+        "fontSize": "100%",
+        "gridPos": {
+          "h": 11,
+          "w": 24,
+          "x": 0,
+          "y": 110
+        },
+        "id": 66,
+        "pageSize": 10,
+        "scroll": true,
+        "showHeader": true,
+        "sort": {
+          "desc": false
+        },
+        "styles": [
+          {
+            "$$hashKey": "object:581",
+            "alias": "time",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "@timestamp",
+            "thresholds": [],
+            "type": "date",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:582",
+            "alias": "nation",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "geoip.country_name.keyword",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:583",
+            "alias": "provincial capital",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "geoip.region_name.keyword",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:584",
+            "alias": "City",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "geoip.city_name.keyword",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:585",
+            "alias": "Client IP",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "client_ip.keyword",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:586",
+            "alias": "terminal",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "ua.os_name.keyword",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:587",
+            "alias": "browser",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "ua.name.keyword",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:588",
+            "alias": "domain name",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "domain.keyword",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:589",
+            "alias": "request method",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "request_method.keyword",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:590",
+            "alias": "processing time",
+            "align": "auto",
+            "colorMode": "value",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "responsetime",
+            "thresholds": [
+              "1",
+              "2"
+            ],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:591",
+            "alias": "Response time",
+            "align": "auto",
+            "colorMode": "value",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "upstreamtime",
+            "thresholds": [
+              "1",
+              "2"
+            ],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:592",
+            "alias": "state",
+            "align": "auto",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "status",
+            "thresholds": [
+              ""
+            ],
+            "type": "number",
+            "unit": "short"
+          },
+          {
+            "$$hashKey": "object:593",
+            "alias": "frequency",
+            "align": "auto",
+            "colorMode": "value",
+            "colors": [
+              "rgba(50, 172, 45, 0.97)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(245, 54, 54, 0.9)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Count",
+            "thresholds": [
+              "50",
+              "100"
+            ],
+            "type": "number",
+            "unit": "short"
+          }
+        ],
+        "targets": [
+          {
+            "bucketAggs": [
+              {
+                "fake": true,
+                "field": "@timestamp",
+                "id": "8",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "geoip.country_name.keyword",
+                "id": "9",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "geoip.region_name.keyword",
+                "id": "10",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "geoip.city_name.keyword",
+                "id": "11",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "client_ip.keyword",
+                "id": "12",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "ua.os_name.keyword",
+                "id": "14",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "ua.name.keyword",
+                "id": "15",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "domain.keyword",
+                "id": "16",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "request_method.keyword",
+                "id": "18",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "responsetime",
+                "id": "19",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "upstreamtime",
+                "id": "20",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              },
+              {
+                "fake": true,
+                "field": "status",
+                "id": "13",
+                "settings": {
+                  "min_doc_count": 1,
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "U3Qw7sL4k"
+            },
+            "hide": false,
+            "metrics": [
+              {
+                "field": "select field",
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "domain:$domain AND status:$status",
+            "refId": "B",
+            "timeField": "@timestamp"
+          }
+        ],
+        "title": "$domain => Nginx log list",
+        "transform": "table",
+        "type": "table-old"
+      }
+    ],
+    "refresh": "",
+    "revision": 1,
+    "schemaVersion": 38,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "current": {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "U3Qw7sL4k"
+          },
+          "definition": "{\"find\":\"terms\",\"field\":\"domain.keyword\"}",
+          "hide": 0,
+          "includeAll": true,
+          "label": "domain name",
+          "multi": true,
+          "name": "domain",
+          "options": [],
+          "query": "{\"find\":\"terms\",\"field\":\"domain.keyword\"}",
+          "refresh": 1,
+          "regex": "/(.*)/",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "current": {
+            "selected": false,
+            "text": "All",
+            "value": "$__all"
+          },
+          "datasource": {
+            "type": "elasticsearch",
+            "uid": "U3Qw7sL4k"
+          },
+          "definition": "{\"find\":\"terms\",\"field\":\"status\"}",
+          "hide": 0,
+          "includeAll": true,
+          "label": "status code",
+          "multi": true,
+          "name": "status",
+          "options": [],
+          "query": "{\"find\":\"terms\",\"field\":\"status\"}",
+          "refresh": 1,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 0,
+          "tagValuesQuery": "",
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        },
+        {
+          "current": {
+            "tags": [],
+            "text": "2",
+            "value": "2"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "request time",
+          "multi": false,
+          "name": "responsetime",
+          "options": [
+            {
+              "selected": false,
+              "text": "1",
+              "value": "1"
+            },
+            {
+              "selected": true,
+              "text": "2",
+              "value": "2"
+            },
+            {
+              "selected": false,
+              "text": "3",
+              "value": "3"
+            },
+            {
+              "selected": false,
+              "text": "4",
+              "value": "4"
+            },
+            {
+              "selected": false,
+              "text": "5",
+              "value": "5"
+            },
+            {
+              "selected": false,
+              "text": "10",
+              "value": "10"
+            }
+          ],
+          "query": "1,2,3,4,5,10",
+          "skipUrlSync": false,
+          "type": "custom"
+        },
+        {
+          "auto": true,
+          "auto_count": 100,
+          "auto_min": "10s",
+          "current": {
+            "selected": false,
+            "text": "auto",
+            "value": "$__auto_interval_inter"
+          },
+          "hide": 0,
+          "includeAll": false,
+          "label": "cycle",
+          "multi": false,
+          "name": "inter",
+          "options": [
+            {
+              "selected": true,
+              "text": "auto",
+              "value": "$__auto_interval_inter"
+            },
+            {
+              "selected": false,
+              "text": "1s",
+              "value": "1s"
+            },
+            {
+              "selected": false,
+              "text": "5s",
+              "value": "5s"
+            },
+            {
+              "selected": false,
+              "text": "10s",
+              "value": "10s"
+            },
+            {
+              "selected": false,
+              "text": "30s",
+              "value": "30s"
+            },
+            {
+              "selected": false,
+              "text": "1m",
+              "value": "1m"
+            },
+            {
+              "selected": false,
+              "text": "10m",
+              "value": "10m"
+            },
+            {
+              "selected": false,
+              "text": "30m",
+              "value": "30m"
+            },
+            {
+              "selected": false,
+              "text": "1h",
+              "value": "1h"
+            },
+            {
+              "selected": false,
+              "text": "6h",
+              "value": "6h"
+            },
+            {
+              "selected": false,
+              "text": "12h",
+              "value": "12h"
+            },
+            {
+              "selected": false,
+              "text": "1d",
+              "value": "1d"
+            },
+            {
+              "selected": false,
+              "text": "7d",
+              "value": "7d"
+            },
+            {
+              "selected": false,
+              "text": "14d",
+              "value": "14d"
+            },
+            {
+              "selected": false,
+              "text": "30d",
+              "value": "30d"
+            }
+          ],
+          "query": "1s,5s,10s,30s,1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+          "refresh": 2,
+          "skipUrlSync": false,
+          "type": "interval"
+        }
+      ]
+    },
+    "time": {
+      "from": "now/d",
+      "to": "now/d"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "timezone": "browser",
+    "title": "AKA ES Nginx Logs",
+    "uid": "dlS0eEJZk",
+    "version": 43,
+    "weekStart": ""
+  }

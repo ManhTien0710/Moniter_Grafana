@@ -1,0 +1,33 @@
+# config source: akiraka.net
+# filebeat input
+filebeat.inputs:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/nginx/access_json.log
+  json.keys_under_root: true
+  json.overwrite_keys: true
+  json.add_error_key: true
+
+# filebeat modules
+filebeat.config.modules:
+  # remove the escape character before the wildcard below
+  path: ${path.config}/modules.d/\*.yml
+  reload.enabled: false
+
+# elasticsearch template settings
+setup.template.settings:
+  index.number_of_shards: 1
+
+# redis output
+#output.redis:
+#  hosts: ["172.16.10.86:6379"]
+ # password: "basebs@"
+#  key: "nginx_logs"
+  # ^ this key needs to be the same as the configured key on logstash
+#  db: 0
+ # timeout: 5
+
+output.logstash:
+  # The Logstash hosts
+  hosts: ["172.16.10.86:5044"]
